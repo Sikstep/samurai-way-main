@@ -6,7 +6,7 @@ function App() {
     return (
         <div className="App">
             <button>MyYouTubeChannel - 1</button>
-            <button>MyYouTubeChannel - 1</button>
+            <button>MyYouTubeChannel - 2</button>
         </div>
     );
 }
