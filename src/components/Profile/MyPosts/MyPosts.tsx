@@ -17,6 +17,7 @@ export const MyPosts = () => {
               <Post title={'Third post'} likeCount={7}/>
               <Post title={'Fourth post'} likeCount={19}/>
               <Post title={'Fifth post'} likeCount={23}/>
+                <Post title={'Fifth post'} likeCount={2}/>
             </div>
         </div>
 
