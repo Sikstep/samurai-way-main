@@ -8,8 +8,14 @@
     padding: 10px;
 }
 
+.dialogs_items a {
+    text-decoration: none;
+    color: blue;
+}
+
 .dialogs_items .active {
     color: gold;
+
 }
 
 .messages {

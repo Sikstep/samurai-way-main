@@ -13,7 +13,7 @@ type MessageType = {
 const DialogItem = (props: DialogItemType) => {
     return (
         <div className={classes.dialog + ' ' + classes.active}>
-            <NavLink to={`/dialogs/${props.id}`}>{props.name}</NavLink>
+            <NavLink to={`/dialogs/${props.id}`} activeClassName={classes.active}>{props.name}</NavLink>
         </div>
     );
 };
