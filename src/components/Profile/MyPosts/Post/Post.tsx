@@ -1,11 +1,8 @@
 import React from 'react';
+import { postType } from '../../Profile';
 import classes from './Post.module.css';
 
-export type postType = {
-    id: number
-    title: string
-    likeCount: number
-}
+
 export const Post = (props: postType) => {
     return (
         <div className={classes.item}>
