@@ -8,6 +8,7 @@ type DialogItemType = {
 }
 
 type MessageType = {
+    id: number
     message: string
 }
 const DialogItem = (props: DialogItemType) => {
@@ -20,29 +21,48 @@ const DialogItem = (props: DialogItemType) => {
 
 const Message = (props: MessageType) => {
     return (
-        <div className={classes.message}>{props.message}</div>
+        <div className={classes.message} key={props.id}>{props.message}</div>
     );
 };
 
 export const Dialogs = () => {
+
+    let dialogsData: DialogItemType[] = [
+        {id: 1, name: 'Dimych'},
+        {id: 2, name: 'Andrey'},
+        {id: 3, name: 'Sveta'},
+        {id: 4, name: 'Sasha'},
+        {id: 5, name: 'Viktor'},
+        {id: 6, name: 'Valera'},
+    ]
+
+    let messageData: MessageType[] = [
+        {id: 1, message: 'Hi'},
+        {id: 2, message: 'How is your it-kamasutra?'},
+        {id: 3, message: 'Yo'},
+        {id: 4, message: 'Yo'},
+        {id: 5, message: 'Yo'},
+    ]
+
+    const mappedDialogsData = dialogsData.map(el => {
+        return (
+            <DialogItem name={el.name} id={el.id}/>
+        )
+    })
+    const mappedMessageData = messageData.map(el => {
+        return (
+            <Message message={el.message} id={el.id}/>
+        )
+    })
+
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogs_items}>
-
-                <DialogItem name={'Dimych'} id={1} />
-                <DialogItem name={'Andrey'} id={2} />
-                <DialogItem name={'Sveta'} id={3} />
-                <DialogItem name={'Sasha'} id={4} />
-                <DialogItem name={'Viktor'} id={5} />
-                <DialogItem name={'Valera'} id={6} />
-
+                { mappedDialogsData }
+                {/*<DialogItem name={'Dimych'} id={1}/>*/}
             </div>
             <div className={classes.messages}>
-                <Message message={'Hi'}/>
-                <Message message={'How is your it-kamasutra?'}/>
-                <Message message={'Yo'}/>
-                <Message message={'Yo'}/>
-                <Message message={'Yo'}/>
+                { mappedMessageData }
             </div>
         </div>
     );
