@@ -1,7 +1,8 @@
 import React from 'react';
+import { postType } from '../../..';
 import classes from './MyPosts.module.css';
 import {Post} from './Post/Post';
-import {postType} from '../Profile';
+
 
 type MyPostsType = {
     postDate: postType[]

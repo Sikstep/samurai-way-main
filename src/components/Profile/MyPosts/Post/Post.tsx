@@ -1,7 +1,7 @@
 import React from 'react';
-import { postType } from '../../Profile';
-import classes from './Post.module.css';
 
+import classes from './Post.module.css';
+import {postType} from '../../../../index';
 
 export const Post = (props: postType) => {
     return (
