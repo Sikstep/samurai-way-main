@@ -8,7 +8,7 @@ export const Post = (props: postType) => {
     return (
         <div className={classes.item}>
             <img
-                src="https://cdn.vox-cdn.com/thumbor/P7ahK7u4lY7afwcc7zCb18ABJL8=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/24291453/avatar6.jpg"
+                src="/Avatar2.jpg"
                 alt=""/>
             {props.title}
             <div>
