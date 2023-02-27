@@ -1,4 +1,4 @@
-import React, {RefObject} from 'react';
+import React from 'react';
 
 import classes from './MyPosts.module.css';
 import {Post} from './Post/Post';
@@ -7,19 +7,26 @@ import {postType} from '../../../redux/state';
 
 type MyPostsType = {
     postDate: postType[]
+    addPost: (newMessage: string) => void
 }
 export const MyPosts = (props: MyPostsType) => {
 
     const mappedPostData = props.postDate.map(el => {
         return (
-            <Post id={el.id} title={el.title} likeCount={el.likeCount}/>
+            <Post key={el.id} id={el.id} title={el.title} likeCount={el.likeCount}/>
         )
     })
 
-    let newPostElement: RefObject<HTMLTextAreaElement> = React.createRef();
+    let newPostElement = React.createRef<HTMLTextAreaElement>();
     const addPost = () => {
-        let text = newPostElement.current?.value;
-        alert(text)
+
+        if (newPostElement.current !== null) {
+            let text = newPostElement.current.value;
+            props.addPost(text)
+            console.log(text)
+        }
+
+
     }
 
     return (

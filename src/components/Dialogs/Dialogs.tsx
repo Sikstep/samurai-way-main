@@ -1,4 +1,4 @@
-import React, {LegacyRef, MouseEvent} from 'react';
+import React, {LegacyRef} from 'react';
 import classes from './Dialogs.module.css';
 import {DialogItem} from './DialogItem/DialogItem';
 import {Message} from './Message/Message';
@@ -10,7 +10,7 @@ type DialogsType = {
 
 export const Dialogs = (props: DialogsType) => {
 
-    const newTestAreaMessage: LegacyRef<HTMLTextAreaElement> = React.createRef();
+    const newTestAreaMessage = React.createRef<HTMLTextAreaElement>();
 
     const mappedDialogsData = props.state.dialogs.map(el => {
         return (

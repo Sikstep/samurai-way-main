@@ -53,3 +53,10 @@ export let state: StateType = {
         ],
     },
 };
+
+export let addPost = (postMessage: string) => {
+
+    let newPost = {id: state.profilePage.posts.length + 1, title: postMessage, likeCount: 0};
+    state.profilePage.posts.push(newPost);
+}
+console.log(state.profilePage.posts);
