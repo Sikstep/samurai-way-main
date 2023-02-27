@@ -10,11 +10,14 @@ type MyPostsType = {
 }
 export const MyPosts = (props: MyPostsType) => {
 
-    const mappedPostData = props.postDate.map( el => {
+    const mappedPostData = props.postDate.map(el => {
         return (
-            <Post id={el.id} title={el.title} likeCount={el.likeCount} />
+            <Post id={el.id} title={el.title} likeCount={el.likeCount}/>
         )
     })
+    const addPost = () => {
+        alert('Hey')
+    }
 
     return (
         <div className={classes.postsBlock}>
@@ -24,11 +27,11 @@ export const MyPosts = (props: MyPostsType) => {
                     <textarea></textarea>
                 </div>
                 <div>
-                    <button>Add post</button>
+                    <button onClick={addPost}>Add post</button>
                 </div>
             </div>
             <div className={classes.posts}>
-                { mappedPostData }
+                {mappedPostData}
             </div>
         </div>
 
