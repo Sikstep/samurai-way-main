@@ -23,7 +23,7 @@ export const MyPosts = (props: MyPostsType) => {
         if (newPostElement.current !== null) {
             let text = newPostElement.current.value;
             props.addPost(text)
-            console.log(text)
+            newPostElement.current.value = '';
         }
 
 

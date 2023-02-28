@@ -1,3 +1,4 @@
+import {rerenderEntireTree} from '../render';
 
 export type StateType = {
     profilePage: profilePageType
@@ -58,5 +59,5 @@ export let addPost = (postMessage: string) => {
 
     let newPost = {id: state.profilePage.posts.length + 1, title: postMessage, likeCount: 0};
     state.profilePage.posts.push(newPost);
+    rerenderEntireTree(state);
 }
-console.log(state.profilePage.posts);
