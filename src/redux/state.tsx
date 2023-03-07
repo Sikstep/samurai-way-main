@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from '../render';
+let rerenderEntireTree = () => {
+
+}
 
 export type StateType = {
     profilePage: profilePageType
@@ -57,16 +59,19 @@ export let state: StateType = {
     },
 };
 
+export const subscribe = (callBack: ()=> void) => {
+    rerenderEntireTree = callBack
+}
 export let addPost = () => {
 
     let newPost = {id: state.profilePage.posts.length + 1, title: state.profilePage.newPostText, likeCount: 0};
     state.profilePage.posts.push(newPost);
     state.profilePage.newPostText = ''
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 }
 
 export const writeTextPost = (message: string) => {
 
     state.profilePage.newPostText = message;
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 }
