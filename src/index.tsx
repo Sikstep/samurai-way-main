@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import {addPost, state, StateType, subscribe, writeTextPost} from './redux/state';
+import {store} from './redux/state';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 import App from './App';
@@ -9,11 +9,11 @@ import App from './App';
 let rerenderEntireTree = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state} newPostText={state.profilePage.newPostText} writeTextPost={writeTextPost} addPost={addPost} postValue={state.profilePage.posts[state.profilePage.posts.length - 1].title}/>
+            <App state={store.getState()} newPostText={store._state.profilePage.newPostText} writeTextPost={store.writeTextPost.bind(store)} addPost={store.addPost.bind(store)} postValue={store._state.profilePage.posts[store._state.profilePage.posts.length - 1].title}/>
         </BrowserRouter>,
         document.getElementById('root')
     );
 };
 rerenderEntireTree();
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);
