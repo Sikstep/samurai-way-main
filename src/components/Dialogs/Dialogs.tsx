@@ -2,7 +2,8 @@ import React, {LegacyRef} from 'react';
 import classes from './Dialogs.module.css';
 import {DialogItem} from './DialogItem/DialogItem';
 import {Message} from './Message/Message';
-import {messagesPageType} from '../../redux/state';
+import { messagesPageType } from '../../redux/Types';
+
 
 type DialogsType = {
     state: messagesPageType
