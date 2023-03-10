@@ -28,11 +28,22 @@ export type MessageType = {
 }
 export type StoreType = {
     _state: StateType
-    writeTextPost:(message: string) => void
-    addPost: () => void
     _callSubscriber: () => void
     subscribe: (callBack: () => void) => void
     getState: () => StateType
-    dispatch: (action: any) => void
+    dispatch: (action: DispatchType) => void
 
 }
+
+export type DispatchType = AddPostTypeDispatch | ChangeTextPostType;
+
+type AddPostTypeDispatch = {
+    type: 'ADD-POST',
+}
+type ChangeTextPostType = {
+    type: 'CHANGE-NEW-TEXT',
+    message: string
+}
+
+
+

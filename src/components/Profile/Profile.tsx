@@ -2,21 +2,20 @@ import React from 'react';
 
 import {ProfileInfo} from './ProfileInfo/ProfileInfo';
 import {MyPosts} from './MyPosts/MyPosts';
-import {profilePageType} from '../../redux/Types';
+import {DispatchType, profilePageType} from '../../redux/Types';
 
 
 type ProfileType = {
     state: profilePageType
-    addPost: () => void
+
     postValue: string
-    newPostText: string
-    writeTextPost: (message: string) => void
+    dispatch: (action: DispatchType) => void
 }
 export const Profile = (props: ProfileType) => {
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts postDate={props.state.posts} writeTextPost={props.writeTextPost} newPostText={props.newPostText} addPost={props.addPost} postValue={props.postValue}/>
+            <MyPosts postDate={props.state.posts} postValue={props.postValue} dispatch={props.dispatch}/>
         </div>
 
     )

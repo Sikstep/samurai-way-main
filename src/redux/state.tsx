@@ -1,4 +1,4 @@
-import { StoreType } from "./Types";
+import {DispatchType, StoreType} from './Types';
 
 export const store: StoreType = {
     _state: {
@@ -41,34 +41,29 @@ export const store: StoreType = {
         return this._state;
     },
 
-    addPost() {
-        let newPost = {
-            id: this._state.profilePage.posts.length + 1,
-            title: this._state.profilePage.newPostText,
-            likeCount: 0,
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = ''
-        this._callSubscriber();
-    },
-    writeTextPost(message) {
-        this._state.profilePage.newPostText = message;
-        this._callSubscriber();
-    },
-    dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            let newPost = {
-                id: this._state.profilePage.posts.length + 1,
-                title: this._state.profilePage.newPostText,
-                likeCount: 0,
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = ''
-            this._callSubscriber();
+    dispatch(action: DispatchType) {
+        switch (action.type) {
+            case 'ADD-POST': {
+                let newPost = {
+                    id: this._state.profilePage.posts.length + 1,
+                    title: this._state.profilePage.newPostText,
+                    likeCount: 0,
+                };
+
+                this._state.profilePage.posts.push(newPost);
+                this._state.profilePage.newPostText = ''
+                this._callSubscriber();
+                break
+            }
+            case 'CHANGE-NEW-TEXT': {
+                this._state.profilePage.newPostText = action.message;
+                this._callSubscriber();
+                break
+            }
+            default: return this._state;
         }
     },
 }
-
 
 
 // export let state: StateType = {
@@ -117,3 +112,4 @@ export const store: StoreType = {
 //     state.profilePage.newPostText = message;
 //     rerenderEntireTree();
 // }
+

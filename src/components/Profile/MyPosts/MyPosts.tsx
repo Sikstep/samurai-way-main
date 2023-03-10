@@ -2,17 +2,14 @@ import React, {ChangeEvent} from 'react';
 
 import classes from './MyPosts.module.css';
 import {Post} from './Post/Post';
-import {postType} from '../../../redux/Types';
-
+import {DispatchType, postType} from '../../../redux/Types';
 
 
 type MyPostsType = {
     postDate: postType[]
-    addPost: () => void
     postValue: string
+    dispatch: (action: DispatchType) => void
 
-    newPostText: string
-    writeTextPost: (message: string) => void
 }
 export const MyPosts = (props: MyPostsType) => {
 
@@ -22,17 +19,17 @@ export const MyPosts = (props: MyPostsType) => {
         )
     })
     const addPost = () => {
-        props.addPost()
+        props.dispatch({ type: 'ADD-POST' })
     }
     const onChangeHandlerTextArea = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.writeTextPost(e.currentTarget.value)
+        props.dispatch({type: 'CHANGE-NEW-TEXT', message: e.currentTarget.value})
     }
     return (
         <div className={classes.postsBlock}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea value={props.newPostText} onChange={onChangeHandlerTextArea}></textarea>
+                    <textarea value={props.postValue} onChange={onChangeHandlerTextArea}></textarea>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
