@@ -1,5 +1,7 @@
 import {DispatchType, StoreType} from './Types';
 import {v1} from 'uuid';
+import {validate} from 'uuid/index';
+import {pseudoRandomBytes} from 'crypto';
 
 export const store: StoreType = {
     _state: {
@@ -51,7 +53,7 @@ export const store: StoreType = {
                     likeCount: 0,
                 };
 
-                this._state.profilePage.posts.push(newPost);
+                this._state.profilePage.posts.unshift(newPost);
                 this._state.profilePage.newPostText = ''
                 this._callSubscriber();
                 break
@@ -61,11 +63,11 @@ export const store: StoreType = {
                 this._callSubscriber();
                 break
             }
-            default: return this._state;
+            default:
+                return this._state;
         }
     },
 }
-
 
 
 // export let state: StateType = {
@@ -114,4 +116,3 @@ export const store: StoreType = {
 //     state.profilePage.newPostText = message;
 //     rerenderEntireTree();
 // }
-
