@@ -14,16 +14,16 @@ export type messagesPageType = {
 }
 
 export type postType = {
-    id: number
+    id: string
     title: string
     likeCount: number
 }
 export type DialogItemType = {
     name: string
-    id: number
+    id: string
 }
 export type MessageType = {
-    id: number
+    id: string
     message: string
 }
 export type StoreType = {
@@ -45,5 +45,16 @@ type ChangeTextPostType = {
     message: string
 }
 
+export const AddPostAC = (): AddPostTypeDispatch => {
+        return {
+            type: 'ADD-POST'
+        }
+}
 
+export const AddMessageAC = (addPost: string): ChangeTextPostType => {
+        return {
+            type: 'CHANGE-NEW-TEXT',
+            message: addPost,
+        }
+}
 

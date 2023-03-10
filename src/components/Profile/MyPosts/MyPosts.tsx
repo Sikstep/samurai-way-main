@@ -2,7 +2,7 @@ import React, {ChangeEvent} from 'react';
 
 import classes from './MyPosts.module.css';
 import {Post} from './Post/Post';
-import {DispatchType, postType} from '../../../redux/Types';
+import {AddMessageAC, AddPostAC, DispatchType, postType} from '../../../redux/Types';
 
 
 type MyPostsType = {
@@ -19,10 +19,10 @@ export const MyPosts = (props: MyPostsType) => {
         )
     })
     const addPost = () => {
-        props.dispatch({ type: 'ADD-POST' })
+        props.dispatch(AddPostAC())
     }
     const onChangeHandlerTextArea = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch({type: 'CHANGE-NEW-TEXT', message: e.currentTarget.value})
+        props.dispatch(AddMessageAC(e.currentTarget.value))
     }
     return (
         <div className={classes.postsBlock}>
