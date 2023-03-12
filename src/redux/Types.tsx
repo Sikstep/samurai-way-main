@@ -35,23 +35,15 @@ export type StoreType = {
 
 }
 
-export type DispatchType = AddPostTypeDispatch | ChangeTextPostType;
+export type DispatchType = ReturnType<typeof AddPostAC> | ReturnType<typeof changeNewTextAC>;
 
-type AddPostTypeDispatch = {
-    type: 'ADD-POST',
-}
-type ChangeTextPostType = {
-    type: 'CHANGE-NEW-TEXT',
-    message: string
-}
-
-export const AddPostAC = (): AddPostTypeDispatch => {
+export const AddPostAC = () => {
         return {
             type: 'ADD-POST'
-        }
+        } as const
 }
 
-export const AddMessageAC = (addPost: string): ChangeTextPostType => {
+export const changeNewTextAC = (addPost: string) => {
         return {
             type: 'CHANGE-NEW-TEXT',
             message: addPost,
