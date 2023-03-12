@@ -1,5 +1,3 @@
-import exp from 'constants';
-
 export type StateType = {
     profilePage: profilePageType
     dialogsPage: messagesPageType
