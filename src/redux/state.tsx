@@ -70,6 +70,7 @@ export const store: StoreType = {
             case 'ADD-DIALOGMESSAGE':
                 let newDialogMessage = {id: v1(), message: this._state.dialogsPage.newMessage};
                 this._state.dialogsPage.messages.push(newDialogMessage);
+                this._state.dialogsPage.newMessage = '';
                 this._callSubscriber()
                 break;
 
