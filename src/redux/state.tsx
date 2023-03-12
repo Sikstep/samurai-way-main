@@ -29,6 +29,7 @@ export const store: StoreType = {
                 {id: v1(), message: 'Yo'},
                 {id: v1(), message: 'Yo'},
             ],
+            newMessage: '',
         },
     },
     _callSubscriber() {
@@ -43,24 +44,35 @@ export const store: StoreType = {
     },
 
     dispatch(action: DispatchType) {
+        debugger
         switch (action.type) {
-            case 'ADD-POST': {
+            case 'ADD-POST':
                 let newPost = {
                     id: v1(),
                     title: this._state.profilePage.newPostText,
                     likeCount: 0,
                 };
-
                 this._state.profilePage.posts.unshift(newPost);
                 this._state.profilePage.newPostText = ''
                 this._callSubscriber();
-                break
-            }
-            case 'CHANGE-NEW-TEXT': {
+                break;
+
+            case 'CHANGE-NEW-TEXT':
                 this._state.profilePage.newPostText = action.message;
                 this._callSubscriber();
-                break
-            }
+                break;
+
+            case 'CHANGE-NEW-DIALOG-MESSAGE':
+                this._state.dialogsPage.newMessage = action.newMessage;
+                this._callSubscriber();
+                break;
+
+            case 'ADD-DIALOGMESSAGE':
+                let newDialogMessage = {id: v1(), message: this._state.dialogsPage.newMessage};
+                this._state.dialogsPage.messages.push(newDialogMessage);
+                this._callSubscriber()
+                break;
+
             default:
                 return this._state;
         }

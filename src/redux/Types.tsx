@@ -1,3 +1,4 @@
+import exp from 'constants';
 
 export type StateType = {
     profilePage: profilePageType
@@ -11,6 +12,7 @@ export type profilePageType = {
 export type messagesPageType = {
     dialogs: DialogItemType[]
     messages: MessageType[]
+    newMessage: string
 }
 
 export type postType = {
@@ -35,18 +37,35 @@ export type StoreType = {
 
 }
 
-export type DispatchType = ReturnType<typeof AddPostAC> | ReturnType<typeof changeNewTextAC>;
+export type DispatchType =
+    ReturnType<typeof AddPostAC>
+    | ReturnType<typeof changeNewTextAC>
+    | ReturnType<typeof newDialogMessageAC>
+    | ReturnType<typeof addNewDialogMessageAC>;
 
 export const AddPostAC = () => {
-        return {
-            type: 'ADD-POST'
-        } as const
+    return {
+        type: 'ADD-POST'
+    } as const
 }
 
 export const changeNewTextAC = (addPost: string) => {
-        return {
-            type: 'CHANGE-NEW-TEXT',
-            message: addPost,
-        }
+    return {
+        type: 'CHANGE-NEW-TEXT',
+        message: addPost,
+    } as const
+}
+
+export const newDialogMessageAC = (newMessage: string) => {
+    return {
+        type: 'CHANGE-NEW-DIALOG-MESSAGE',
+        newMessage: newMessage,
+    } as const
+}
+
+export const addNewDialogMessageAC = () => {
+    return {
+        type: 'ADD-DIALOGMESSAGE',
+    } as const
 }
 

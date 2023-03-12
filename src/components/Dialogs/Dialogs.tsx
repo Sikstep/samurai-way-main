@@ -1,17 +1,17 @@
-import React, {LegacyRef} from 'react';
+import React, {ChangeEvent, LegacyRef} from 'react';
 import classes from './Dialogs.module.css';
 import {DialogItem} from './DialogItem/DialogItem';
 import {Message} from './Message/Message';
-import { messagesPageType } from '../../redux/Types';
+import {addNewDialogMessageAC, DispatchType, messagesPageType, newDialogMessageAC} from '../../redux/Types';
 
 
 type DialogsType = {
     state: messagesPageType
+    newDialogMessage: string
+    dispatch: (action: DispatchType) => void
 }
 
 export const Dialogs = (props: DialogsType) => {
-
-    const newTestAreaMessage = React.createRef<HTMLTextAreaElement>();
 
     const mappedDialogsData = props.state.dialogs.map(el => {
         return (
@@ -25,7 +25,11 @@ export const Dialogs = (props: DialogsType) => {
     })
 
     const addNewMessage = () => {
-        alert(newTestAreaMessage.current?.value)
+        props.dispatch(addNewDialogMessageAC())
+    }
+
+    const newMessageText = (e: ChangeEvent<HTMLTextAreaElement>) => {
+            props.dispatch(newDialogMessageAC(e.currentTarget.value))
     }
 
     return (
@@ -36,7 +40,7 @@ export const Dialogs = (props: DialogsType) => {
                 <div className={classes.messages}>
                     {mappedMessageData}
                 </div>
-            <textarea ref={newTestAreaMessage}></textarea>
+            <textarea value={props.newDialogMessage} onChange={newMessageText}></textarea>
             <button onClick={addNewMessage}>Add message</button>
         </div>
     );
