@@ -31,15 +31,14 @@ export type StoreType = {
     _callSubscriber: () => void
     subscribe: (callBack: () => void) => void
     getState: () => StateType
-    dispatch: (action: DispatchType) => void
+    dispatch: (action: TsarType) => void
 
 }
-
-export type DispatchType =
-    ReturnType<typeof AddPostAC>
+export type TsarType = ReturnType<typeof AddPostAC>
     | ReturnType<typeof changeNewTextAC>
     | ReturnType<typeof newDialogMessageAC>
     | ReturnType<typeof addNewDialogMessageAC>;
+
 
 export const AddPostAC = () => {
     return {

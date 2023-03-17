@@ -1,4 +1,4 @@
-import {DispatchType, StoreType} from './Types';
+import {DispatchType, StoreType, TsarType} from './Types';
 import {v1} from 'uuid';
 
 export const store: StoreType = {
@@ -43,7 +43,7 @@ export const store: StoreType = {
         return this._state;
     },
 
-    dispatch(action: DispatchType) {
+    dispatch(action:TsarType) {
         debugger
         switch (action.type) {
             case 'ADD-POST':
@@ -56,6 +56,7 @@ export const store: StoreType = {
                 this._state.profilePage.newPostText = ''
                 this._callSubscriber();
                 break;
+
 
             case 'CHANGE-NEW-TEXT':
                 this._state.profilePage.newPostText = action.message;
