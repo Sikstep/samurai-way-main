@@ -24,5 +24,18 @@ const ProfileReducer = (state: profilePageType, action: TsarType): profilePageTy
     }
 };
 
+
+export const AddPostAC = () => {
+    return {
+        type: 'ADD-POST'
+    } as const
+}
+
+export const changeNewTextAC = (addPost: string) => {
+    return {
+        type: 'CHANGE-NEW-TEXT',
+        message: addPost,
+    } as const
+}
 export default ProfileReducer;
 

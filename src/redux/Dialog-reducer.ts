@@ -18,5 +18,17 @@ const DialogReducer = (state: messagesPageType, action: TsarType): messagesPageT
     }
 };
 
+export const newDialogMessageAC = (newMessage: string) => {
+    return {
+        type: 'CHANGE-NEW-DIALOG-MESSAGE',
+        newMessage: newMessage,
+    } as const
+}
+
+export const addNewDialogMessageAC = () => {
+    return {
+        type: 'ADD-DIALOGMESSAGE',
+    } as const
+}
 export default DialogReducer;
 

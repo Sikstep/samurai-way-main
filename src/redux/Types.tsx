@@ -1,3 +1,6 @@
+import {addNewDialogMessageAC, newDialogMessageAC } from './Dialog-reducer';
+import {AddPostAC, changeNewTextAC} from './Profile-reducer';
+
 export type StateType = {
     profilePage: profilePageType
     dialogsPage: messagesPageType
@@ -40,29 +43,7 @@ export type TsarType = ReturnType<typeof AddPostAC>
     | ReturnType<typeof addNewDialogMessageAC>;
 
 
-export const AddPostAC = () => {
-    return {
-        type: 'ADD-POST'
-    } as const
-}
 
-export const changeNewTextAC = (addPost: string) => {
-    return {
-        type: 'CHANGE-NEW-TEXT',
-        message: addPost,
-    } as const
-}
 
-export const newDialogMessageAC = (newMessage: string) => {
-    return {
-        type: 'CHANGE-NEW-DIALOG-MESSAGE',
-        newMessage: newMessage,
-    } as const
-}
 
-export const addNewDialogMessageAC = () => {
-    return {
-        type: 'ADD-DIALOGMESSAGE',
-    } as const
-}
 
