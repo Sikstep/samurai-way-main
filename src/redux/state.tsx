@@ -1,6 +1,7 @@
 import {StoreType, TsarType} from './Types';
 import {v1} from 'uuid';
 import ProfileReducer from './Profile-reducer';
+import DialogReducer from './Dialog-reducer';
 
 export const store: StoreType = {
     _state: {
@@ -45,22 +46,7 @@ export const store: StoreType = {
     },
 
     dispatch(action:TsarType) {
-        // switch (action.type) {
-        //     case 'CHANGE-NEW-DIALOG-MESSAGE':
-        //         this._state.dialogsPage.newMessage = action.newMessage;
-        //         this._callSubscriber();
-        //         break;
-        //
-        //     case 'ADD-DIALOGMESSAGE':
-        //         let newDialogMessage = {id: v1(), message: this._state.dialogsPage.newMessage};
-        //         this._state.dialogsPage.messages.push(newDialogMessage);
-        //         this._state.dialogsPage.newMessage = '';
-        //         this._callSubscriber()
-        //         break;
-        //
-        //     default:
-        //         return this._state;
-        // }
+        DialogReducer(this._state.dialogsPage, action);
         ProfileReducer(this._state.profilePage, action);
         this._callSubscriber();
     },

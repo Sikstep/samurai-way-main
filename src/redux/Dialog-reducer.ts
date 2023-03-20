@@ -1,5 +1,5 @@
 import {v1} from 'uuid';
-import {messagesPageType, profilePageType, TsarType} from './Types';
+import {messagesPageType, TsarType} from './Types';
 
 const DialogReducer = (state: messagesPageType, action: TsarType): messagesPageType => {
     switch (action.type) {
