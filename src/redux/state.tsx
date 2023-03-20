@@ -1,5 +1,6 @@
 import {StoreType, TsarType} from './Types';
 import {v1} from 'uuid';
+import ProfileReducer from './Profile-reducer';
 
 export const store: StoreType = {
     _state: {
@@ -44,25 +45,7 @@ export const store: StoreType = {
     },
 
     dispatch(action:TsarType) {
-        debugger
         switch (action.type) {
-            case 'ADD-POST':
-                let newPost = {
-                    id: v1(),
-                    title: this._state.profilePage.newPostText,
-                    likeCount: 0,
-                };
-                this._state.profilePage.posts.unshift(newPost);
-                this._state.profilePage.newPostText = ''
-                this._callSubscriber();
-                break;
-
-
-            case 'CHANGE-NEW-TEXT':
-                this._state.profilePage.newPostText = action.message;
-                this._callSubscriber();
-                break;
-
             case 'CHANGE-NEW-DIALOG-MESSAGE':
                 this._state.dialogsPage.newMessage = action.newMessage;
                 this._callSubscriber();
@@ -78,5 +61,7 @@ export const store: StoreType = {
             default:
                 return this._state;
         }
+        ProfileReducer(this._state.profilePage, action);
+        this._callSubscriber();
     },
 }

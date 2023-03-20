@@ -1,5 +1,5 @@
 import {v1} from 'uuid';
-import {profilePageType, StateType, TsarType} from './Types';
+import {profilePageType, TsarType} from './Types';
 
 const ProfileReducer = (state: profilePageType, action: TsarType): profilePageType => {
     switch (action.type) {

@@ -8,12 +8,12 @@ import {Route} from 'react-router-dom';
 import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings.';
-import {DispatchType, StateType} from './redux/Types';
+import {TsarType, StateType} from './redux/Types';
 
 
 type AppType = {
     state: StateType
-    dispatch: (action: DispatchType) => void
+    dispatch: (action: TsarType) => void
 }
 
 function App(props: AppType) {

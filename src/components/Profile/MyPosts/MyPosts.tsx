@@ -2,13 +2,13 @@ import React, {ChangeEvent} from 'react';
 
 import classes from './MyPosts.module.css';
 import {Post} from './Post/Post';
-import {changeNewTextAC, AddPostAC, DispatchType, postType} from '../../../redux/Types';
+import {changeNewTextAC, AddPostAC, TsarType, postType} from '../../../redux/Types';
 
 
 type MyPostsType = {
     postDate: postType[]
     postValue: string
-    dispatch: (action: DispatchType) => void
+    dispatch: (action: TsarType) => void
 
 }
 export const MyPosts = (props: MyPostsType) => {
