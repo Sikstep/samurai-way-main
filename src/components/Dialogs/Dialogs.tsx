@@ -3,7 +3,7 @@ import classes from './Dialogs.module.css';
 import {DialogItem} from './DialogItem/DialogItem';
 import {Message} from './Message/Message';
 import {TsarType, messagesPageType} from '../../redux/Types';
-import { addNewDialogMessageAC, newDialogMessageAC } from '../../redux/Dialog-reducer';
+import {addNewDialogMessageAC, newDialogMessageAC} from '../../redux/Dialog-reducer';
 
 
 type DialogsType = {
@@ -30,19 +30,21 @@ export const Dialogs = (props: DialogsType) => {
     }
 
     const newMessageText = (e: ChangeEvent<HTMLTextAreaElement>) => {
-            props.dispatch(newDialogMessageAC(e.currentTarget.value))
+        props.dispatch(newDialogMessageAC(e.currentTarget.value))
     }
 
     return (
         <div className={classes.dialogs}>
-                <div className={classes.dialogs_items}>
-                    {mappedDialogsData}
+            <div className={classes.dialogs_items}>
+                {mappedDialogsData}
+            </div>
+            <div className={classes.messages}>
+                {mappedMessageData}
+                <div className={classes.messagesInput}>
+                    <textarea value={props.newDialogMessage} onChange={newMessageText}></textarea>
+                    <button onClick={addNewMessage}>Add message</button>
                 </div>
-                <div className={classes.messages}>
-                    {mappedMessageData}
-                </div>
-            <textarea value={props.newDialogMessage} onChange={newMessageText}></textarea>
-            <button onClick={addNewMessage}>Add message</button>
+            </div>
         </div>
     );
 };
