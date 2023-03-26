@@ -45,9 +45,10 @@ export const store: StoreType = {
         return this._state;
     },
 
-    dispatch(action:TsarType) {
+    dispatch(action: TsarType) {
         DialogReducer(this._state.dialogsPage, action);
         ProfileReducer(this._state.profilePage, action);
         this._callSubscriber();
     },
 }
+
