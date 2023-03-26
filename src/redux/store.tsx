@@ -2,6 +2,7 @@ import {StoreType, TsarType} from './Types';
 import {v1} from 'uuid';
 import ProfileReducer from './Profile-reducer';
 import DialogReducer from './Dialog-reducer';
+import SidebarReducer from './Sidebar-reducer';
 
 export const store: StoreType = {
     _state: {
@@ -33,6 +34,7 @@ export const store: StoreType = {
             ],
             newMessage: '',
         },
+        sidebar: {},
     },
     _callSubscriber() {
         console.log('State changed')
@@ -46,8 +48,9 @@ export const store: StoreType = {
     },
 
     dispatch(action: TsarType) {
-        DialogReducer(this._state.dialogsPage, action);
-        ProfileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = DialogReducer(this._state.dialogsPage, action);
+        this._state.profilePage = ProfileReducer(this._state.profilePage, action);
+        this._state.sidebar = SidebarReducer(this._state.sidebar, action);
         this._callSubscriber();
     },
 }

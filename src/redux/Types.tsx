@@ -4,6 +4,7 @@ import {AddPostAC, changeNewTextAC} from './Profile-reducer';
 export type StateType = {
     profilePage: profilePageType
     dialogsPage: messagesPageType
+    sidebar: any
 }
 export type profilePageType = {
     posts: postType[]
