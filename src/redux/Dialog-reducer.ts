@@ -1,7 +1,26 @@
 import {v1} from 'uuid';
 import {messagesPageType, TsarType} from './Types';
 
-const DialogReducer = (state: messagesPageType, action: TsarType): messagesPageType => {
+const initialMessagesPageState: messagesPageType = {
+        dialogs: [
+            {id: v1(), name: 'Dimych'},
+            {id: v1(), name: 'Andrey'},
+            {id: v1(), name: 'Sveta'},
+            {id: v1(), name: 'Sasha'},
+            {id: v1(), name: 'Viktor'},
+            {id: v1(), name: 'Valera'},
+        ],
+        messages: [
+            {id: v1(), message: 'Hi'},
+            {id: v1(), message: 'How is your it-kamasutra?'},
+            {id: v1(), message: 'Yo'},
+            {id: v1(), message: 'Yo'},
+            {id: v1(), message: 'Yo'},
+        ],
+        newMessage: '',
+    }
+
+const DialogReducer = (state: messagesPageType = initialMessagesPageState, action: TsarType): messagesPageType => {
     switch (action.type) {
         case 'CHANGE-NEW-DIALOG-MESSAGE':
             state.newMessage = action.newMessage;

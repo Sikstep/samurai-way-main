@@ -1,7 +1,18 @@
 import {v1} from 'uuid';
 import {profilePageType, TsarType} from './Types';
 
-const ProfileReducer = (state: profilePageType, action: TsarType): profilePageType => {
+const initialPostsPageState: profilePageType = {
+        posts: [
+            {id: v1(), title: 'Hi, how are you?', likeCount: 15},
+            {id: v1(), title: `It's my first post`, likeCount: 10},
+            {id: v1(), title: 'Third post', likeCount: 7},
+            {id: v1(), title: 'Fourth post', likeCount: 19},
+            {id: v1(), title: 'Fifth post', likeCount: 2},
+        ],
+        newPostText: ''
+    };
+
+const ProfileReducer = (state: profilePageType = initialPostsPageState, action: TsarType): profilePageType => {
     switch (action.type) {
         case 'ADD-POST':
             let newPost = {
