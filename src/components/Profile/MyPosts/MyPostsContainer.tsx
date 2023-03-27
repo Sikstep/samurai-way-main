@@ -4,15 +4,16 @@ import classes from './MyPosts.module.css';
 import {Post} from './Post/Post';
 import {AllACTypes, postType} from '../../../redux/Types';
 import {AddPostAC, changeNewTextAC} from '../../../redux/Profile-reducer';
+import {MyPosts} from './MyPosts';
 
 
-type MyPostsType = {
+type MyPostsContainerType = {
     postDate: postType[]
     postValue: string
     dispatch: (action: AllACTypes) => void
 
 }
-export const MyPosts = (props: MyPostsType) => {
+export const MyPostsContainer = (props: MyPostsContainerType) => {
 
     const mappedPostData = props.postDate.map(el => {
         return (
@@ -22,25 +23,10 @@ export const MyPosts = (props: MyPostsType) => {
     const addPost = () => {
         props.dispatch(AddPostAC())
     }
-    const onChangeHandlerTextArea = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch(changeNewTextAC(e.currentTarget.value))
+    const onChangePostHandler = (text: string) => {
+        props.dispatch(changeNewTextAC(text))
     }
     return (
-        <div className={classes.postsBlock}>
-            <h3>My posts</h3>
-            <div>
-                <div>
-                    <textarea value={props.postValue} onChange={onChangeHandlerTextArea}></textarea>
-                </div>
-                <div>
-                    <button onClick={addPost}>Add post</button>
-                </div>
-            </div>
-            <div className={classes.posts}>
-                {mappedPostData}
-            </div>
-        </div>
-
-
+        <MyPosts postDate={props.postDate} postValue={props.postValue} updateNewPostText={onChangePostHandler} addPost={addPost}/>
     )
 }
