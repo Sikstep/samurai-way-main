@@ -2,14 +2,14 @@ import React from 'react';
 
 import {ProfileInfo} from './ProfileInfo/ProfileInfo';
 import {MyPosts} from './MyPosts/MyPosts';
-import {TsarType, profilePageType} from '../../redux/Types';
+import {AllACTypes, profilePageType} from '../../redux/Types';
 
 
 type ProfileType = {
     state: profilePageType
 
     postValue: string
-    dispatch: (action: TsarType) => void
+    dispatch: (action: AllACTypes) => void
 }
 export const Profile = (props: ProfileType) => {
     return (

@@ -1,4 +1,4 @@
-import {StoreType, TsarType} from './Types';
+import {StoreType, AllACTypes} from './Types';
 import {v1} from 'uuid';
 import ProfileReducer from './Profile-reducer';
 import DialogReducer from './Dialog-reducer';
@@ -37,7 +37,7 @@ export const store: StoreType = {
         sidebar: {},
     },
     _callSubscriber() {
-        console.log('State changed')
+
     },
 
     subscribe(callBack) {
@@ -47,7 +47,7 @@ export const store: StoreType = {
         return this._state;
     },
 
-    dispatch(action: TsarType) {
+    dispatch(action: AllACTypes) {
         this._state.dialogsPage = DialogReducer(this._state.dialogsPage, action);
         this._state.profilePage = ProfileReducer(this._state.profilePage, action);
         this._state.sidebar = SidebarReducer(this._state.sidebar, action);

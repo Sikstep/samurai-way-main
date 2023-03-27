@@ -1,5 +1,5 @@
 import {v1} from 'uuid';
-import {profilePageType, TsarType} from './Types';
+import {profilePageType, AllACTypes} from './Types';
 
 const initialPostsPageState: profilePageType = {
         posts: [
@@ -12,7 +12,7 @@ const initialPostsPageState: profilePageType = {
         newPostText: ''
     };
 
-const ProfileReducer = (state: profilePageType = initialPostsPageState, action: TsarType): profilePageType => {
+const ProfileReducer = (state: profilePageType = initialPostsPageState, action: AllACTypes): profilePageType => {
     switch (action.type) {
         case 'ADD-POST':
             let newPost = {

@@ -2,14 +2,14 @@ import React, {ChangeEvent} from 'react';
 import classes from './Dialogs.module.css';
 import {DialogItem} from './DialogItem/DialogItem';
 import {Message} from './Message/Message';
-import {TsarType, messagesPageType} from '../../redux/Types';
+import {AllACTypes, messagesPageType} from '../../redux/Types';
 import {addNewDialogMessageAC, newDialogMessageAC} from '../../redux/Dialog-reducer';
 
 
 type DialogsType = {
     state: messagesPageType
-    newDialogMessage: string
-    dispatch: (action: TsarType) => void
+
+    dispatch: (action: AllACTypes) => void
 }
 
 export const Dialogs = (props: DialogsType) => {
@@ -41,7 +41,7 @@ export const Dialogs = (props: DialogsType) => {
             <div className={classes.messages}>
                 {mappedMessageData}
                 <div className={classes.messagesInput}>
-                    <textarea value={props.newDialogMessage} onChange={newMessageText}></textarea>
+                    <textarea value={props.state.newMessage} onChange={newMessageText}></textarea>
                     <button onClick={addNewMessage}>Add message</button>
                 </div>
             </div>

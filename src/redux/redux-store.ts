@@ -4,10 +4,11 @@ import ProfileReducer from './Profile-reducer';
 import SidebarReducer from './Sidebar-reducer';
 
 const reducers = combineReducers({
-    profilePage: DialogReducer,
-    dialogsPage: ProfileReducer,
+    profilePage: ProfileReducer,
+    dialogsPage: DialogReducer,
     sidebar: SidebarReducer,
 })
+export type AppStateType = ReturnType<typeof reducers>
 export let store = createStore(reducers);
 
 

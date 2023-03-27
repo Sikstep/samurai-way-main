@@ -8,12 +8,13 @@ import {Route} from 'react-router-dom';
 import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings.';
-import {TsarType, StateType} from './redux/Types';
+import {AllACTypes, StateType} from './redux/Types';
+import {AppStateType} from './redux/redux-store';
 
 
 type AppType = {
-    state: StateType
-    dispatch: (action: TsarType) => void
+    state: AppStateType
+    dispatch: (action: AllACTypes) => void
 }
 
 function App(props: AppType) {
@@ -25,7 +26,7 @@ function App(props: AppType) {
             <Navbar/>
             <div className={'app-wrapper-content'}>
                 <Route path={'/dialogs'} render={() => <Dialogs
-                    state={props.state.dialogsPage} newDialogMessage={props.state.dialogsPage.newMessage} dispatch={props.dispatch}/>}/>
+                    state={props.state.dialogsPage} dispatch={props.dispatch}/>}/>
                 <Route path={'/profile'}
                        render={() => <Profile
                            state={props.state.profilePage}

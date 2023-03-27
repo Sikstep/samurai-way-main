@@ -1,5 +1,5 @@
 import {v1} from 'uuid';
-import {messagesPageType, TsarType} from './Types';
+import {messagesPageType, AllACTypes} from './Types';
 
 const initialMessagesPageState: messagesPageType = {
         dialogs: [
@@ -20,7 +20,7 @@ const initialMessagesPageState: messagesPageType = {
         newMessage: '',
     }
 
-const DialogReducer = (state: messagesPageType = initialMessagesPageState, action: TsarType): messagesPageType => {
+const DialogReducer = (state: messagesPageType = initialMessagesPageState, action: AllACTypes): messagesPageType => {
     switch (action.type) {
         case 'CHANGE-NEW-DIALOG-MESSAGE':
             state.newMessage = action.newMessage;

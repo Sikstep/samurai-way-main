@@ -1,7 +1,7 @@
-import {TsarType} from './Types';
+import {AllACTypes} from './Types';
 
 const initialSidebarState = {}
-const SidebarReducer = (state: any = initialSidebarState, action: TsarType): any => {
+const SidebarReducer = (state: any = initialSidebarState, action: AllACTypes): any => {
 
     return state;
 };
