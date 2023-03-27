@@ -8,8 +8,8 @@ import {addNewDialogMessageAC, newDialogMessageAC} from '../../redux/Dialog-redu
 
 type DialogsType = {
     state: messagesPageType
-
-    dispatch: (action: AllACTypes) => void
+    addNewMessage: () => void
+    newMessageText: (text: string) => void
 }
 
 export const Dialogs = (props: DialogsType) => {
@@ -26,11 +26,11 @@ export const Dialogs = (props: DialogsType) => {
     })
 
     const addNewMessage = () => {
-        props.dispatch(addNewDialogMessageAC())
+        props.addNewMessage()
     }
 
     const newMessageText = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch(newDialogMessageAC(e.currentTarget.value))
+        props.newMessageText(e.currentTarget.value)
     }
 
     return (

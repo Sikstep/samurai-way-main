@@ -4,47 +4,27 @@ import {DialogItem} from './DialogItem/DialogItem';
 import {Message} from './Message/Message';
 import {AllACTypes, messagesPageType} from '../../redux/Types';
 import {addNewDialogMessageAC, newDialogMessageAC} from '../../redux/Dialog-reducer';
+import {ReduxStoreType} from '../../redux/redux-store';
+import {Dialogs} from './Dialogs';
 
 
 type DialogsType = {
-    state: messagesPageType
+    store: ReduxStoreType
 
-    dispatch: (action: AllACTypes) => void
 }
 
-export const Dialogs = (props: DialogsType) => {
+export const DialogsContainer = (props: DialogsType) => {
 
-    const mappedDialogsData = props.state.dialogs.map(el => {
-        return (
-            <DialogItem name={el.name} id={el.id}/>
-        )
-    })
-    const mappedMessageData = props.state.messages.map(el => {
-        return (
-            <Message message={el.message} id={el.id}/>
-        )
-    })
-
-    const addNewMessage = () => {
-        props.dispatch(addNewDialogMessageAC())
+    let state = props.store.getState();
+      const addNewMessage = () => {
+        props.store.dispatch(addNewDialogMessageAC())
     }
 
-    const newMessageText = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch(newDialogMessageAC(e.currentTarget.value))
+    const newMessageText = (text: string) => {
+        props.store.dispatch(newDialogMessageAC(text))
     }
 
     return (
-        <div className={classes.dialogs}>
-            <div className={classes.dialogs_items}>
-                {mappedDialogsData}
-            </div>
-            <div className={classes.messages}>
-                {mappedMessageData}
-                <div className={classes.messagesInput}>
-                    <textarea value={props.state.newMessage} onChange={newMessageText}></textarea>
-                    <button onClick={addNewMessage}>Add message</button>
-                </div>
-            </div>
-        </div>
+        <Dialogs state={state.dialogsPage} addNewMessage={addNewMessage} newMessageText={newMessageText}/>
     );
 };

@@ -10,6 +10,7 @@ import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings.';
 import {AllACTypes, StateType} from './redux/Types';
 import {AppStateType, ReduxStoreType} from './redux/redux-store';
+import {DialogsContainer} from './components/Dialogs/DialogsContainer';
 
 
 type AppType = {
@@ -26,7 +27,7 @@ function App(props: AppType) {
             <Header/>
             <Navbar/>
             <div className={'app-wrapper-content'}>
-                <Route path={'/dialogs'} render={() => <Dialogs
+                <Route path={'/dialogs'} render={() => <DialogsContainer
                     store={props.store}/>}/>
                 <Route path={'/profile'}
                        render={() => <Profile
