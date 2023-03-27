@@ -10,7 +10,7 @@ type MyPostsContainerType = {
 }
 export const MyPostsContainer = (props: MyPostsContainerType) => {
 
-    let state = props.postDate.getState()
+    let state = props.postDate.getState().profilePage
     const addPost = () => {
         props.postDate.dispatch(AddPostAC())
     }
@@ -18,6 +18,6 @@ export const MyPostsContainer = (props: MyPostsContainerType) => {
         props.postDate.dispatch(changeNewTextAC(text))
     }
     return (
-        <MyPosts postDate={state.profilePage.posts} postValue={state.profilePage.newPostText} updateNewPostText={onChangePostHandler} addPost={addPost}/>
+        <MyPosts postDate={state.posts} postValue={state.newPostText} updateNewPostText={onChangePostHandler} addPost={addPost}/>
     )
 }
