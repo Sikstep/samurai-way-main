@@ -11,7 +11,7 @@ type DialogsType = {
 
 export const DialogsContainer = (props: DialogsType) => {
 
-    let state = props.store.getState();
+    let state = props.store.getState().dialogsPage;
       const addNewMessage = () => {
         props.store.dispatch(addNewDialogMessageAC())
     }
@@ -21,6 +21,6 @@ export const DialogsContainer = (props: DialogsType) => {
     }
 
     return (
-        <Dialogs state={state.dialogsPage} addNewMessage={addNewMessage} newMessageText={newMessageText}/>
+        <Dialogs state={state} addNewMessage={addNewMessage} newMessageText={newMessageText}/>
     );
 };
