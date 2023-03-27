@@ -1,9 +1,7 @@
 import React from 'react';
-import {Post} from './Post/Post';
-import {AllACTypes, postType} from '../../../redux/Types';
 import {AddPostAC, changeNewTextAC} from '../../../redux/Profile-reducer';
 import {MyPosts} from './MyPosts';
-import {AppStateType, ReduxStoreType} from '../../../redux/redux-store';
+import {ReduxStoreType} from '../../../redux/redux-store';
 
 
 type MyPostsContainerType = {

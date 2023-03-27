@@ -1,9 +1,8 @@
 import React from 'react';
 
 import {ProfileInfo} from './ProfileInfo/ProfileInfo';
-import {AllACTypes, profilePageType} from '../../redux/Types';
 import {MyPostsContainer} from './MyPosts/MyPostsContainer';
-import {AppStateType, ReduxStoreType} from '../../redux/redux-store';
+import {ReduxStoreType} from '../../redux/redux-store';
 
 
 type ProfileType = {

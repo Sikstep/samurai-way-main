@@ -1,8 +1,4 @@
-import React, {ChangeEvent} from 'react';
-import classes from './Dialogs.module.css';
-import {DialogItem} from './DialogItem/DialogItem';
-import {Message} from './Message/Message';
-import {AllACTypes, messagesPageType} from '../../redux/Types';
+import React from 'react';
 import {addNewDialogMessageAC, newDialogMessageAC} from '../../redux/Dialog-reducer';
 import {ReduxStoreType} from '../../redux/redux-store';
 import {Dialogs} from './Dialogs';
