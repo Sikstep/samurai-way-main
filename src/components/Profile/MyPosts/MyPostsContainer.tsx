@@ -1,32 +1,25 @@
-import React, {ChangeEvent} from 'react';
-
-import classes from './MyPosts.module.css';
+import React from 'react';
 import {Post} from './Post/Post';
 import {AllACTypes, postType} from '../../../redux/Types';
 import {AddPostAC, changeNewTextAC} from '../../../redux/Profile-reducer';
 import {MyPosts} from './MyPosts';
+import {AppStateType, ReduxStoreType} from '../../../redux/redux-store';
 
 
 type MyPostsContainerType = {
-    postDate: postType[]
-    postValue: string
-    dispatch: (action: AllACTypes) => void
+    postDate: ReduxStoreType
 
 }
 export const MyPostsContainer = (props: MyPostsContainerType) => {
 
-    const mappedPostData = props.postDate.map(el => {
-        return (
-            <Post key={el.id} id={el.id} title={el.title} likeCount={el.likeCount}/>
-        )
-    })
+    let state = props.postDate.getState()
     const addPost = () => {
-        props.dispatch(AddPostAC())
+        props.postDate.dispatch(AddPostAC())
     }
     const onChangePostHandler = (text: string) => {
-        props.dispatch(changeNewTextAC(text))
+        props.postDate.dispatch(changeNewTextAC(text))
     }
     return (
-        <MyPosts postDate={props.postDate} postValue={props.postValue} updateNewPostText={onChangePostHandler} addPost={addPost}/>
+        <MyPosts postDate={state.profilePage.posts} postValue={state.profilePage.newPostText} updateNewPostText={onChangePostHandler} addPost={addPost}/>
     )
 }

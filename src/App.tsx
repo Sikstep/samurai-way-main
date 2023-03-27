@@ -9,12 +9,13 @@ import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings.';
 import {AllACTypes, StateType} from './redux/Types';
-import {AppStateType} from './redux/redux-store';
+import {AppStateType, ReduxStoreType} from './redux/redux-store';
 
 
 type AppType = {
     state: AppStateType
     dispatch: (action: AllACTypes) => void
+    store: ReduxStoreType
 }
 
 function App(props: AppType) {
@@ -26,12 +27,10 @@ function App(props: AppType) {
             <Navbar/>
             <div className={'app-wrapper-content'}>
                 <Route path={'/dialogs'} render={() => <Dialogs
-                    state={props.state.dialogsPage} dispatch={props.dispatch}/>}/>
+                    store={props.store}/>}/>
                 <Route path={'/profile'}
                        render={() => <Profile
-                           state={props.state.profilePage}
-                           postValue={props.state.profilePage.newPostText}
-                           dispatch={props.dispatch}
+                           store={props.store}
                        />
                 }/>
                 <Route path={'/news'} render={() => <News/>}/>
