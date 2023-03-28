@@ -3,17 +3,11 @@ import {addNewDialogMessageAC, newDialogMessageAC} from '../../redux/Dialog-redu
 import {Dialogs} from './Dialogs';
 import {StoreContext} from '../../StoreContext';
 
-
-type DialogsType = {
-
-}
-
-export const DialogsContainer = (props: DialogsType) => {
-
+export const DialogsContainer = () => {
 
     return (
         <StoreContext.Consumer>
-            { store => {
+            {store => {
                 let state = store.getState().dialogsPage;
                 const addNewMessage = () => {
                     store.dispatch(addNewDialogMessageAC())
@@ -26,8 +20,7 @@ export const DialogsContainer = (props: DialogsType) => {
                     <Dialogs state={state} addNewMessage={addNewMessage} newMessageText={newMessageText}/>
                 )
             }
-        }
-
+            }
         </StoreContext.Consumer>
     );
 };

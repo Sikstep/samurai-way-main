@@ -1,16 +1,10 @@
 import React from 'react';
 import {AddPostAC, changeNewTextAC} from '../../../redux/Profile-reducer';
 import {MyPosts} from './MyPosts';
-import {ReduxStoreType} from '../../../redux/redux-store';
 import {StoreContext} from '../../../StoreContext';
 
 
-type MyPostsContainerType = {
-
-
-}
-export const MyPostsContainer = (props: MyPostsContainerType) => {
-
+export const MyPostsContainer = () => {
 
     return (
         <StoreContext.Consumer>
