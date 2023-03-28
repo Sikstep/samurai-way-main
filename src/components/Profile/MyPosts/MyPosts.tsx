@@ -2,17 +2,9 @@ import React, {ChangeEvent} from 'react';
 
 import classes from './MyPosts.module.css';
 import {Post} from './Post/Post';
-import {postType} from '../../../redux/Types';
+import {MyPostsTypesFromContainer} from './MyPostsContainer';
 
-
-type MyPostsType = {
-    postDate: postType[]
-    postValue: string
-    updateNewPostText: (text: string) => void
-    addPost: () => void
-
-}
-export const MyPosts = (props: MyPostsType) => {
+export const MyPosts = (props: MyPostsTypesFromContainer) => {
 
     const mappedPostData = props.postDate.map(el => {
         return (

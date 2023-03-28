@@ -7,9 +7,8 @@ import {Route} from 'react-router-dom';
 import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings.';
-import {AllACTypes} from './redux/Types';
-import {AppStateType, ReduxStoreType} from './redux/redux-store';
-import {DialogsContainer} from './components/Dialogs/DialogsContainer';
+import { DialogsContainer } from './components/Dialogs/DialogsContainer';
+
 
 
 type AppType = {
