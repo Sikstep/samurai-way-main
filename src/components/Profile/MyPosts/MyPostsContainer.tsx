@@ -13,8 +13,8 @@ export const MyPostsContainer = (props: MyPostsContainerType) => {
 
 
     return (
-        <StoreContext> {
-            (store) => {
+        <StoreContext.Consumer>
+            { store => {
                 let state = store.getState().profilePage
                 const addPost = () => {
                     store.dispatch(AddPostAC())
@@ -28,6 +28,6 @@ export const MyPostsContainer = (props: MyPostsContainerType) => {
                 )
             }
         }
-        </StoreContext>
+        </StoreContext.Consumer>
     )
 }

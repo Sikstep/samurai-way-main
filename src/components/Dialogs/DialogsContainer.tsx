@@ -5,15 +5,15 @@ import {StoreContext} from '../../StoreContext';
 
 
 type DialogsType = {
-    children: React.ReactNode
+
 }
 
 export const DialogsContainer = (props: DialogsType) => {
 
 
     return (
-        <StoreContext.Consumer> {
-            (store) => {
+        <StoreContext.Consumer>
+            { store => {
                 let state = store.getState().dialogsPage;
                 const addNewMessage = () => {
                     store.dispatch(addNewDialogMessageAC())
