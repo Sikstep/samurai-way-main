@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, ReactNode} from 'react';
 import classes from './Dialogs.module.css';
 import {DialogItem} from './DialogItem/DialogItem';
 import {Message} from './Message/Message';
@@ -9,6 +9,7 @@ type DialogsType = {
     state: messagesPageType
     addNewMessage: () => void
     newMessageText: (text: string) => void
+
 }
 
 export const Dialogs = (props: DialogsType) => {
