@@ -8,12 +8,12 @@ export const Dialogs = (props: DialogsTypesFromContainer) => {
 
     const mappedDialogsData = props.state.dialogs.map(el => {
         return (
-            <DialogItem name={el.name} id={el.id}/>
+            <DialogItem key={el.id} name={el.name} id={el.id}/>
         )
     })
     const mappedMessageData = props.state.messages.map(el => {
         return (
-            <Message message={el.message} id={el.id}/>
+            <Message key={el.id} message={el.message} id={el.id}/>
         )
     })
 

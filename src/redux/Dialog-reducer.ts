@@ -1,39 +1,39 @@
 import {v1} from 'uuid';
-import {messagesPageType, AllACTypes} from './Types';
+import {AllACTypes, messagesPageType} from './Types';
 
 const initialMessagesPageState: messagesPageType = {
-        dialogs: [
-            {id: v1(), name: 'Dimych'},
-            {id: v1(), name: 'Andrey'},
-            {id: v1(), name: 'Sveta'},
-            {id: v1(), name: 'Sasha'},
-            {id: v1(), name: 'Viktor'},
-            {id: v1(), name: 'Valera'},
-        ],
-        messages: [
-            {id: v1(), message: 'Hi'},
-            {id: v1(), message: 'How is your it-kamasutra?'},
-            {id: v1(), message: 'Yo'},
-            {id: v1(), message: 'Yo'},
-            {id: v1(), message: 'Yo'},
-        ],
-        newMessage: '',
-    }
+    dialogs: [
+        {id: v1(), name: 'Dimych'},
+        {id: v1(), name: 'Andrey'},
+        {id: v1(), name: 'Sveta'},
+        {id: v1(), name: 'Sasha'},
+        {id: v1(), name: 'Viktor'},
+        {id: v1(), name: 'Valera'},
+    ],
+    messages: [
+        {id: v1(), message: 'Hi'},
+        {id: v1(), message: 'How is your it-kamasutra?'},
+        {id: v1(), message: 'Yo'},
+        {id: v1(), message: 'Yo'},
+        {id: v1(), message: 'Yo'},
+    ],
+    newMessage: '',
+};
 
 const DialogReducer = (state: messagesPageType = initialMessagesPageState, action: AllACTypes): messagesPageType => {
     switch (action.type) {
-        case 'CHANGE-NEW-DIALOG-MESSAGE':
-            let newMessageCopy = {...state, newMessage: action.newMessage}
-            // state.newMessage = action.newMessage;
-            return newMessageCopy;
-
         case 'ADD-DIALOGMESSAGE':
             let newDialogMessage = {id: v1(), message: state.newMessage};
-            let newState = {...state, message: [newDialogMessage, ...state.messages]}
+            let newState = {...state, messages: [...state.messages, newDialogMessage], newMessage: ''}
 
             // state.messages.push(newDialogMessage);
             // state.newMessage = '';
             return newState;
+
+        case 'CHANGE-NEW-DIALOG-MESSAGE':
+            let newMessageCopy = {...state, newMessage: action.newMessage}
+            // state.newMessage = action.newMessage;
+            return newMessageCopy;
 
         default:
             return state;
