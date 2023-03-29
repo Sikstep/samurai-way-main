@@ -20,15 +20,17 @@ const ProfileReducer = (state: profilePageType = initialPostsPageState, action: 
                 title: state.newPostText,
                 likeCount: 0,
             };
-            state.posts.unshift(newPost);
-            state.newPostText = ''
+            let stateCopy = {...state, posts: [newPost, ...state.posts], newPostText: ''}
+            // state.posts.unshift(newPost);    как было раньше)))
+            // state.newPostText = ''
 
-            return state
+            return stateCopy
 
         case 'CHANGE-NEW-TEXT':
-            state.newPostText = action.message;
+            let newPostTextCopy = {...state, newPostText: action.message}
+            // state.newPostText = action.message; как было раньше=)
 
-            return state
+            return newPostTextCopy
 
         default:
             return state;

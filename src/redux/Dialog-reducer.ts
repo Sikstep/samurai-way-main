@@ -23,14 +23,17 @@ const initialMessagesPageState: messagesPageType = {
 const DialogReducer = (state: messagesPageType = initialMessagesPageState, action: AllACTypes): messagesPageType => {
     switch (action.type) {
         case 'CHANGE-NEW-DIALOG-MESSAGE':
-            state.newMessage = action.newMessage;
-            return state;
+            let newMessageCopy = {...state, newMessage: action.newMessage}
+            // state.newMessage = action.newMessage;
+            return newMessageCopy;
 
         case 'ADD-DIALOGMESSAGE':
             let newDialogMessage = {id: v1(), message: state.newMessage};
-            state.messages.push(newDialogMessage);
-            state.newMessage = '';
-            return state;
+            let newState = {...state, message: [newDialogMessage, ...state.messages]}
+
+            // state.messages.push(newDialogMessage);
+            // state.newMessage = '';
+            return newState;
 
         default:
             return state;
