@@ -27,6 +27,7 @@ function App(props: AppType) {
                 <Route path={'/profile'}
                        render={() => <Profile />
                 }/>
+                <Route path={'/users'} render={() => <div>Users</div>}/>
                 <Route path={'/news'} render={() => <News/>}/>
                 <Route path={'/music'} render={() => <Music/>}/>
                 <Route path={'/settings'} render={() => <Settings/>}/>
