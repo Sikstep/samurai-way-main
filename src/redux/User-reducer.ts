@@ -7,22 +7,22 @@ export type initialUsersType = {
 
 const initialUsers: initialUsersType = {
     users: [
-        {
-            id: v1(),
-            photoUrl: 'https://тайна-вашего-имени.рф/img/imena/dmitriy.jpg',
-            userName: 'Dmitry K.',
-            userStatus: `I'm looking for a job right now`,
-            location: {country: 'Belarus', city: 'Minsk'},
-            friendStatus: true
-        },
-        {
-            id: v1(),
-            photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpAC0WbcnGFLSj2WVDq7Ale1VtrekDlKA7cg&usqp=CAU',
-            userName: 'Svetlana D.',
-            userStatus: `I'm so pretty`,
-            location: {country: 'Belarus', city: 'Minsk'},
-            friendStatus: false
-        },
+        // {
+        //     id: v1(),
+        //     photoUrl: 'https://тайна-вашего-имени.рф/img/imena/dmitriy.jpg',
+        //     userName: 'Dmitry K.',
+        //     userStatus: `I'm looking for a job right now`,
+        //     location: {country: 'Belarus', city: 'Minsk'},
+        //     friendStatus: true
+        // },
+        // {
+        //     id: v1(),
+        //     photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpAC0WbcnGFLSj2WVDq7Ale1VtrekDlKA7cg&usqp=CAU',
+        //     userName: 'Svetlana D.',
+        //     userStatus: `I'm so pretty`,
+        //     location: {country: 'Belarus', city: 'Minsk'},
+        //     friendStatus: false
+        // },
     ]
 };
 

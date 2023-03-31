@@ -4,7 +4,6 @@ import {UsersTypeFromContainer} from './UsersContainer';
 import {v1} from 'uuid';
 
 export const Users = (props: UsersTypeFromContainer) => {
-
     const onClickSetUsersHandler = () => {
         props.setUsers([
             {
@@ -62,7 +61,8 @@ export const Users = (props: UsersTypeFromContainer) => {
     })
     return (
         <div className={s.users}>
-            <button onClick={onClickSetUsersHandler}>Get users</button>
+            <button onClick={onClickSetUsersHandler}>Get users
+            </button>
             {mappedUsers}
         </div>
     );
