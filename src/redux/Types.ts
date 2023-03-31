@@ -1,6 +1,6 @@
 import {addNewDialogMessageAC, newDialogMessageAC} from './Dialog-reducer';
 import {AddPostAC, changeNewTextAC} from './Profile-reducer';
-import {changeFriendUserStatusAC} from './User-reducer';
+import {changeFriendUserStatusAC, setUserAC} from './User-reducer';
 
 export type StateType = {
     profilePage: profilePageType
@@ -56,7 +56,8 @@ export type AllACTypes = ReturnType<typeof AddPostAC>
     | ReturnType<typeof changeNewTextAC>
     | ReturnType<typeof newDialogMessageAC>
     | ReturnType<typeof addNewDialogMessageAC>
-    | ReturnType<typeof changeFriendUserStatusAC>;
+    | ReturnType<typeof changeFriendUserStatusAC>
+    | ReturnType<typeof setUserAC>;
 
 
 
