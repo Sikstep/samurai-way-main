@@ -7,20 +7,20 @@ export type initialUsersType = {
 
 const initialUsers: initialUsersType = {
     users: [
-        {
-            id: v1(),
-            userName: 'Dmitry K.',
-            userStatus: `I'm looking for a job right now`,
-            location: {country: 'Belarus', city: 'Minsk'},
-            friendStatus: true
-        },
-        {
-            id: v1(),
-            userName: 'Svetlana D.',
-            userStatus: `I'm so pretty`,
-            location: {country: 'Belarus', city: 'Minsk'},
-            friendStatus: false
-        },
+        // {
+        //     id: v1(),
+        //     userName: 'Dmitry K.',
+        //     userStatus: `I'm looking for a job right now`,
+        //     location: {country: 'Belarus', city: 'Minsk'},
+        //     friendStatus: true
+        // },
+        // {
+        //     id: v1(),
+        //     userName: 'Svetlana D.',
+        //     userStatus: `I'm so pretty`,
+        //     location: {country: 'Belarus', city: 'Minsk'},
+        //     friendStatus: false
+        // },
     ]
 };
 
@@ -38,7 +38,7 @@ const usersReducer = (state: initialUsersType = initialUsers, action: AllACTypes
             return stateCopy;
         }
         case 'SET-USERS': {
-            stateCopy = {...state, users: action.payload.users}
+            stateCopy = {...state, users: [...state.users, ...action.payload]}
             return stateCopy
         }
     }
@@ -53,7 +53,7 @@ export const changeFriendUserStatusAC = (userID: string, newStatus: boolean) => 
         payload: {userID, newStatus}
     } as const
 }
-export const setUserAC = (users: initialUsersType) => {
+export const setUserAC = (users: UserType[]) => {
     return {
         type: 'SET-USERS',
         payload: users
