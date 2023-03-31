@@ -33,6 +33,7 @@ export type MessageType = {
 }
 export type UserType = {
     id: string
+    photoUrl: string
     userName: string
     userStatus: string
     location: UserLocationType

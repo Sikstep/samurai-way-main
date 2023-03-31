@@ -1,3 +1,57 @@
 .users {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
 
+.users button {
+    width: 100px;
+    min-width: 100px;
+}
+
+.user_container {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    padding: 10px;
+}
+
+.users_imgBlock {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+}
+
+
+.user_img {
+
+}
+
+.user_img img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.userInfoBlock {
+    display: flex;
+    width: 450px;
+    height: 100px;
+    min-width: 450px;
+    border: 2px solid rgba(128, 128, 128, 0.7);
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.userName {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.userLocation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
