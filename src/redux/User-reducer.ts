@@ -1,4 +1,3 @@
-import {v1} from 'uuid';
 import {AllACTypes, UserType} from './Types';
 
 export type initialUsersType = {
@@ -8,20 +7,16 @@ export type initialUsersType = {
 const initialUsers: initialUsersType = {
     users: [
         {
-            id: v1(),
-            photoUrl: 'https://тайна-вашего-имени.рф/img/imena/dmitriy.jpg',
-            userName: 'Dmitry K.',
-            userStatus: `I'm looking for a job right now`,
+            followed: true,
+            id: 123,
+            name: 'Dmitry K.',
+            photos: {
+                small: 'https://тайна-вашего-имени.рф/img/imena/dmitriy.jpg',
+                large: null,
+            },
+            status: `I'm looking for a job right now`,
+            uniqueUrlName: null,
             location: {country: 'Belarus', city: 'Minsk'},
-            friendStatus: true
-        },
-        {
-            id: v1(),
-            photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpAC0WbcnGFLSj2WVDq7Ale1VtrekDlKA7cg&usqp=CAU',
-            userName: 'Svetlana D.',
-            userStatus: `I'm so pretty`,
-            location: {country: 'Belarus', city: 'Minsk'},
-            friendStatus: false
         },
     ]
 };
@@ -34,7 +29,7 @@ const usersReducer = (state: initialUsersType = initialUsers, action: AllACTypes
                 ...state,
                 users: state.users.map(el => el.id === action.payload.userID ? {
                     ...el,
-                    friendStatus: action.payload.newStatus
+                    followed: action.payload.newStatus
                 } : el)
             }
             return stateCopy;
@@ -49,7 +44,7 @@ const usersReducer = (state: initialUsersType = initialUsers, action: AllACTypes
 
 };
 
-export const changeFriendUserStatusAC = (userID: string, newStatus: boolean) => {
+export const changeFriendUserStatusAC = (userID: number, newStatus: boolean) => {
     return {
         type: 'CHANGE-FRIENDS-STATUS',
         payload: {userID, newStatus}

@@ -10,7 +10,7 @@ type mapStateToPropsType = {
     state: initialUsersType
 }
 type mapDispatchToProps = {
-    changeFriendUserStatus: (userID: string, newStatus: boolean) => void
+    changeFriendUserStatus: (userID: number, newStatus: boolean) => void
     setUsers: (users: UserType[]) => void
 }
 export type UsersTypeFromContainer = mapStateToPropsType & mapDispatchToProps;

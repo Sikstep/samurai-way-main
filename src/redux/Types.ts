@@ -32,13 +32,20 @@ export type MessageType = {
     message: string
 }
 export type UserType = {
-    id: string
-    photoUrl: string
-    userName: string
-    userStatus: string
-    location: UserLocationType
-    friendStatus: boolean
 
+    followed: boolean
+    id: number
+    name: string
+    photos: PhotoType
+    status: string | null
+    uniqueUrlName: string | null
+    location?: UserLocationType
+
+
+}
+type PhotoType = {
+    small: string | null
+    large: string | null
 }
 export type UserLocationType = {
     country: string
