@@ -6,11 +6,11 @@ import axios from 'axios';
 
 export const Users = (props: UsersTypeFromContainer) => {
     const onClickSetUsersHandler = () => {
-
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(respons => {
-            props.setUsers(respons.data.items)
-        });
-
+        if (props.state.users.length === 0) {
+            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(respons => {
+                props.setUsers(respons.data.items)
+            });
+        }
 
     }
     const mappedUsers = props.state.users.map(user => {

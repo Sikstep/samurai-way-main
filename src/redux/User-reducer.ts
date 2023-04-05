@@ -6,18 +6,18 @@ export type initialUsersType = {
 
 const initialUsers: initialUsersType = {
     users: [
-        {
-            followed: true,
-            id: 123,
-            name: 'Dmitry K.',
-            photos: {
-                small: 'https://тайна-вашего-имени.рф/img/imena/dmitriy.jpg',
-                large: null,
-            },
-            status: `I'm looking for a job right now`,
-            uniqueUrlName: null,
-            location: {country: 'Belarus', city: 'Minsk'},
-        },
+        // {
+        //     followed: true,
+        //     id: 123,
+        //     name: 'Dmitry K.',
+        //     photos: {
+        //         small: 'https://тайна-вашего-имени.рф/img/imena/dmitriy.jpg',
+        //         large: null,
+        //     },
+        //     status: `I'm looking for a job right now`,
+        //     uniqueUrlName: null,
+        //     location: {country: 'Belarus', city: 'Minsk'},
+        // },
     ]
 };
 
