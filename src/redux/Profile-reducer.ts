@@ -1,5 +1,5 @@
 import {v1} from 'uuid';
-import {profilePageType, AllACTypes} from './Types';
+import {AllACTypes, profilePageType} from './Types';
 
 const initialPostsPageState: profilePageType = {
     posts: [
@@ -53,4 +53,5 @@ export const changeNewTextAC = (addPost: string) => {
     } as const
 }
 export default ProfileReducer;
+
 

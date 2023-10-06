@@ -10,12 +10,7 @@ import {Settings} from './components/Settings/Settings.';
 import {DialogsContainer} from './components/Dialogs/DialogsContainer';
 import {UsersContainer} from './components/Users/UsersContainer';
 
-
-type AppType = {
-
-}
-
-function App(props: AppType) {
+function App() {
 
 
     return (
