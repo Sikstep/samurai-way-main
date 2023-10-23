@@ -54,5 +54,6 @@ export const addNewDialogMessageAC = () => {
         type: 'ADD-DIALOGMESSAGE',
     } as const
 }
+
 export default DialogReducer;
 
