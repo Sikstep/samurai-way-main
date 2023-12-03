@@ -39,6 +39,7 @@ const DialogReducer = (state: messagesPageType = initialMessagesPageState, actio
 
         default:
             return state;
+
     }
 };
 
