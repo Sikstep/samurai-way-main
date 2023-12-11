@@ -24,6 +24,7 @@ export const store: StoreType = {
                 {id: v1(), name: 'Sasha'},
                 {id: v1(), name: 'Viktor'},
                 {id: v1(), name: 'Valera'},
+                {id: v1(), name: 'Kosty'},
             ],
             messages: [
                 {id: v1(), message: 'Hi'},
