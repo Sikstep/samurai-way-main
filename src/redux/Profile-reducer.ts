@@ -8,6 +8,7 @@ const initialPostsPageState: profilePageType = {
         {id: v1(), title: 'Third post', likeCount: 7},
         {id: v1(), title: 'Fourth post', likeCount: 19},
         {id: v1(), title: 'Fifth post', likeCount: 2},
+        {id: v1(), title: 'Tenth post', likeCount: 7},
     ],
     newPostText: ''
 };
