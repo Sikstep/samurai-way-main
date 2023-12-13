@@ -16,6 +16,7 @@ const initialMessagesPageState: messagesPageType = {
         {id: v1(), message: 'Yo'},
         {id: v1(), message: 'Yo'},
         {id: v1(), message: 'Yo'},
+        {id: v1(), message: 'Hi man!'},
     ],
     newMessage: '',
 };
