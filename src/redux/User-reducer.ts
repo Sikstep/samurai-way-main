@@ -32,6 +32,7 @@ const usersReducer = (state: initialUsersType = initialUsers, action: AllACTypes
                     followed: action.payload.newStatus
                 } : el)
             }
+
             return stateCopy;
         }
         case 'SET-USERS': {

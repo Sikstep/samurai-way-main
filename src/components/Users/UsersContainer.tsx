@@ -18,7 +18,7 @@ export type UsersTypeFromContainer = mapStateToPropsType & mapDispatchToProps;
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     return {
         state: state.usersPage
-    }
+    } 
 }
 const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToProps => {
     return {
