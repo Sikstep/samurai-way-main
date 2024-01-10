@@ -37,6 +37,7 @@ const usersReducer = (state: initialUsersType = initialUsers, action: AllACTypes
         }
         case 'SET-USERS': {
             stateCopy = {...state, users: [...state.users, ...action.payload]}
+
             return stateCopy
         }
     }
