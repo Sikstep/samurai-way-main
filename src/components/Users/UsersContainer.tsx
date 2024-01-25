@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Users} from './Users';
 import {changeFriendUserStatusAC, initialUsersType, setUserAC} from '../../redux/User-reducer';
 import {Dispatch} from 'redux';
 import {AppStateType} from '../../redux/redux-store';
 import {UserType} from '../../redux/Types';
+import {Users} from './UsersC';
 
-type mapStateToPropsType = {
+export type mapStateToPropsType = {
     state: initialUsersType
 }
-type mapDispatchToProps = {
+export type mapDispatchToProps = {
     changeFriendUserStatus: (userID: number, newStatus: boolean) => void
     setUsers: (users: UserType[]) => void
 }
@@ -30,5 +30,7 @@ const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToProps => {
         }
     }
 }
-export const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users)
+
+export const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
+
 
