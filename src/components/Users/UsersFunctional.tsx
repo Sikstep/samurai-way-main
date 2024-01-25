@@ -4,7 +4,7 @@ import {UsersTypeFromContainer} from './UsersContainer';
 import axios from 'axios';
 
 
-export const Users = (props: UsersTypeFromContainer) => {
+export const UsersFunctional = (props: UsersTypeFromContainer) => {
     const onClickSetUsersHandler = () => {
         if (props.state.users.length === 0) {
             axios.get('https://social-network.samuraijs.com/api/1.0/users').then(respons => {

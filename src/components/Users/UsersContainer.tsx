@@ -4,7 +4,8 @@ import {changeFriendUserStatusAC, initialUsersType, setUserAC} from '../../redux
 import {Dispatch} from 'redux';
 import {AppStateType} from '../../redux/redux-store';
 import {UserType} from '../../redux/Types';
-import {Users} from './UsersC';
+import {Users} from './UsersClass';
+
 
 export type mapStateToPropsType = {
     state: initialUsersType
