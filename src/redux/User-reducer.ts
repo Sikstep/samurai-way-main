@@ -2,6 +2,9 @@ import {AllACTypes, UserType} from './Types';
 
 export type initialUsersType = {
     users: UserType[]
+    pageSize: number
+    totalCount: number
+    currentPage: number
 }
 
 const initialUsers: initialUsersType = {
@@ -18,7 +21,11 @@ const initialUsers: initialUsersType = {
         //     uniqueUrlName: null,
         //     location: {country: 'Belarus', city: 'Minsk'},
         // },
-    ]
+    ],
+    pageSize: 5,
+    totalCount: 20,
+    currentPage: 2
+
 };
 
 const usersReducer = (state: initialUsersType = initialUsers, action: AllACTypes): initialUsersType => {
@@ -40,6 +47,10 @@ const usersReducer = (state: initialUsersType = initialUsers, action: AllACTypes
 
             return stateCopy
         }
+        case 'SET-CURRENT-PAGE': {
+            stateCopy = {...state, currentPage: action.currentPage}
+        }
+        return  stateCopy
     }
 
 
@@ -57,6 +68,13 @@ export const setUserAC = (users: UserType[]) => {
     return {
         type: 'SET-USERS',
         payload: users
+    } as const
+}
+
+export const setCurrentPageAC = (currentPage: number) => {
+    return {
+        type: 'SET-CURRENT-PAGE',
+        currentPage: currentPage
     } as const
 }
 

@@ -1,6 +1,6 @@
 import {addNewDialogMessageAC, newDialogMessageAC} from './Dialog-reducer';
 import {AddPostAC, changeNewTextAC} from './Profile-reducer';
-import {changeFriendUserStatusAC, setUserAC} from './User-reducer';
+import {changeFriendUserStatusAC, setCurrentPageAC, setUserAC} from './User-reducer';
 
 export type StateType = {
     profilePage: profilePageType
@@ -38,8 +38,6 @@ export type UserType = {
     name: string
     photos: PhotoType
     status: string | null
-    uniqueUrlName: string | null
-    location?: UserLocationType
 
 
 }
@@ -47,10 +45,7 @@ type PhotoType = {
     small: string | null
     large: string | null
 }
-export type UserLocationType = {
-    country: string
-    city: string
-}
+
 export type StoreType = {
     _state: StateType
     _callSubscriber: () => void
@@ -65,7 +60,8 @@ export type AllACTypes = ReturnType<typeof AddPostAC>
     | ReturnType<typeof newDialogMessageAC>
     | ReturnType<typeof addNewDialogMessageAC>
     | ReturnType<typeof changeFriendUserStatusAC>
-    | ReturnType<typeof setUserAC>;
+    | ReturnType<typeof setUserAC>
+    | ReturnType<typeof setCurrentPageAC>
 
 
 

@@ -6,14 +6,14 @@ import axios from 'axios';
 
 export const UsersFunctional = (props: UsersTypeFromContainer) => {
     const onClickSetUsersHandler = () => {
-        if (props.state.users.length === 0) {
+        if (props.users.users.length === 0) {
             axios.get('https://social-network.samuraijs.com/api/1.0/users').then(respons => {
                 props.setUsers(respons.data.items)
             });
         }
 
     }
-    const mappedUsers = props.state.users.map(user => {
+    const mappedUsers = props.users.users.map(user => {
         const onClickHandlerUnfollow = () => {
             props.changeFriendUserStatus(user.id, false)
         }
